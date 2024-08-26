@@ -1,10 +1,11 @@
+import { useState } from "react";
+import Header from "./components/header";
+
 function App() {
   return (
-    <>
-      <h1 className="text-xl font-bold underline text-blue-500">
-        Hello world!
-      </h1>
-    </>
+    <div className="w-80 h-96 bg-white text-black rounded-2xl">
+      <Header />
+    </div>
   );
 }
 
