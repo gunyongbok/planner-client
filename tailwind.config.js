@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark: "rgb(236, 230, 230)",
+        "bubble-gum": "#ff77e9",
       },
     },
   },
