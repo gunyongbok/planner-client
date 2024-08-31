@@ -4,7 +4,7 @@ import useStateStore from "../store/store";
 const Input = () => {
   const [todo, setTodo] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
-  const { currentState } = useStateStore();
+  const { currentState, isDarkMode } = useStateStore();
 
   const handleAddTodo = () => {
     if (inputValue.trim() === "") return;
@@ -21,10 +21,14 @@ const Input = () => {
 
   useEffect(() => {
     console.log(todo, currentState);
-  }, [todo]); // todo나 currentState가 변경될 때마다 실행됨
+  }, [todo]);
 
   return (
-    <div className="flex justify-end items-center relative rounded-b-2xl h-14 bg-green-400 w-full pr-4 pl-4 box-border">
+    <div
+      className={`flex justify-end items-center relative rounded-b-2xl h-14 w-full pr-4 pl-4 box-border ${
+        isDarkMode ? "bg-dark-mode-header" : "bg-green-400"
+      }`}
+    >
       <input
         type="text"
         value={inputValue}

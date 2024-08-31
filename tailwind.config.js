@@ -5,6 +5,8 @@ export default {
     extend: {
       colors: {
         "bubble-gum": "#ff77e9",
+        "dark-mode-main": "#ECE6E6",
+        "dark-mode-header": "#1C1D3D",
       },
     },
   },
