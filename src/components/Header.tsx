@@ -1,8 +1,8 @@
-import { useState } from "react";
 import { HiMoon } from "react-icons/hi";
+import useStateStore from "../store/store";
 
 const Header = () => {
-  const [currentState, setCurrentState] = useState<string>("all");
+  const { currentState, setCurrentState } = useStateStore();
 
   const states = ["all", "completed", "active"];
 
@@ -13,7 +13,9 @@ const Header = () => {
         {states.map((state) => (
           <button
             key={state}
-            onClick={() => setCurrentState(state)}
+            onClick={() => {
+              setCurrentState(state);
+            }}
             className={currentState === state ? "text-bubble-gum" : ""}
           >
             {state}

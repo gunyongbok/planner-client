@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import useStateStore from "../store/store";
 
 const Input = () => {
   const [todo, setTodo] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
+  const { currentState } = useStateStore();
 
   const handleAddTodo = () => {
     if (inputValue.trim() === "") return;
@@ -17,7 +19,9 @@ const Input = () => {
     }
   };
 
-  console.log(todo);
+  useEffect(() => {
+    console.log(todo, currentState);
+  }, [todo]); // todo나 currentState가 변경될 때마다 실행됨
 
   return (
     <div className="flex justify-end items-center relative rounded-b-2xl h-14 bg-green-400 w-full pr-4 pl-4 box-border">
